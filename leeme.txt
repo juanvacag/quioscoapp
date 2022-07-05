@@ -30,3 +30,6 @@ npx create-next-app@latest
 
 7- desde una terminal teclear
     7.1 npx prisma db seed
+
+8- desde una terminal teclear
+    8.1 npm i axios
