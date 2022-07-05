@@ -1,0 +1,32 @@
+1- desde una terminal teclear
+npx create-next-app@latest
+    1.1 "y" para proceder
+    1.2 18-quioscoapp como nombre
+
+    2.1 teclear cd 18-quioscoapp
+    2.2 teclear npm run dev (arrranca el servidor en http://localhost:3000)
+
+2- desde una terminal teclear
+    2.1 npm i -D tailwindcss postcss autoprefixer
+    2.2 npx tailwindcss init -p
+
+3- desde una terminal teclear
+    3.1 npm i -D prisma
+    3.2 npm i @prisma/client
+    3.3 npx prisma init
+
+4- desde una terminal teclear
+    4.1 npx prisma migrate dev
+    4.2 npx prisma migrate reset //resetea tota la base de datos
+    4.3 npx prisma studio //visualizar la base de datos en localhost, sin ningun tipo de programa
+
+5- desde una terminal teclear
+    5.1 npm i ts-node
+
+6- añadir al archivo package.json
+        "prisma": {
+        "seed": "ts-node prisma/seed.ts"
+    },
+
+7- desde una terminal teclear
+    7.1 npx prisma db seed
