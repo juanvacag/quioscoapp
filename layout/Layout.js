@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Sidebar from '../components/Sidebar'
 
 export default function Layout({children, pagina}) {
-    console.log(pagina)
+    //console.log(pagina)
     return (
         <>
             <Head>
