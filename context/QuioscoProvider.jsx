@@ -40,7 +40,7 @@ const QuioscoProvider = ({children}) => {
         setModal(!modal)
     }
 
-    const handleAgregarPedido = ({categoriaId, imagen, ...producto}) => {
+    const handleAgregarPedido = ({categoriaId, ...producto}) => {
         if(pedido.some(productoState => productoState.id === producto.id)) {
             //actualizar la cantidad
             const pedidoActualizado = pedido.map(productoState => productoState.id === producto.id ? producto : productoState)
