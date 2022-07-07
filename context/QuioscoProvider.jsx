@@ -1,5 +1,6 @@
 import {useState, useEffect, createContext} from 'react'
 import axios from 'axios'
+import { toast} from 'react-toastify'
 
 const QuioscoContext = createContext()
 
@@ -10,6 +11,7 @@ const QuioscoProvider = ({children}) => {
     const [producto, setProducto] = useState({})
     const [modal, setModal] = useState(false)
     const [pedido, setPedido] = useState([])
+    //const [paso, setPaso] = useState(1)
 
 
     const obtenerCategorias = async () => {
@@ -39,18 +41,18 @@ const QuioscoProvider = ({children}) => {
     }
 
     const handleAgregarPedido = ({categoriaId, imagen, ...producto}) => {
-        //console.log(producto)
         if(pedido.some(productoState => productoState.id === producto.id)) {
-            //console.log("El producto ya existe")
+            //actualizar la cantidad
             const pedidoActualizado = pedido.map(productoState => productoState.id === producto.id ? producto : productoState)
             setPedido(pedidoActualizado)
+            toast.success('Guardado Correctamente')
         } else {
-            //console.log("El producto no existe")
             setPedido([...pedido, producto])
+            toast.success('Agregado al Pedido')
         }
-        //setPedido([...pedido, producto])
         setModal(false)
     }
+
 
     return(
         <QuioscoContext.Provider
@@ -63,7 +65,7 @@ const QuioscoProvider = ({children}) => {
                 modal,
                 handleChangeModal,
                 handleAgregarPedido,
-                pedido
+                pedido,
             }}
         >
             {children}

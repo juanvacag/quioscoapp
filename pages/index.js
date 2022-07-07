@@ -6,8 +6,6 @@ import useQuiosco from '../hooks/useQuiosco';
 
 export default function Home() {
   const { categoriaActual } = useQuiosco();
-
-  //console.log(categoriaActual.productos)
   
   return (
     <Layout

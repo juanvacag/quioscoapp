@@ -33,6 +33,15 @@ npx create-next-app@latest
 
 8- desde una terminal teclear
     8.1 npm i axios
+    8.2 (QuioscoProvider.jsx) import axios from 'axios'
 
 9- desde una terminal teclear
     9.1 npm i react-modal
+    9.2 (layout.ks) import Modal from 'react-modal';
+
+10- desde una terminal teclear
+    10.1 npm i react-toastify
+    10.2 (layout.js) 
+        10.2.1 import {ToastContainer} from 'react-toastify'
+        10.2.2 import 'react-toastify/dist/ReactToastify.css'
+    10.3 (QuioscoProvider.jsx) import { toast} from 'react-toastify'
