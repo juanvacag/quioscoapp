@@ -1,6 +1,6 @@
 import {useState, useEffect, createContext} from 'react'
 import axios from 'axios'
-import { toast} from 'react-toastify'
+import {toast} from 'react-toastify'
 
 const QuioscoContext = createContext()
 
@@ -11,7 +11,6 @@ const QuioscoProvider = ({children}) => {
     const [producto, setProducto] = useState({})
     const [modal, setModal] = useState(false)
     const [pedido, setPedido] = useState([])
-    //const [paso, setPaso] = useState(1)
 
 
     const obtenerCategorias = async () => {
@@ -42,17 +41,31 @@ const QuioscoProvider = ({children}) => {
 
     const handleAgregarPedido = ({categoriaId, ...producto}) => {
         if(pedido.some(productoState => productoState.id === producto.id)) {
+
             //actualizar la cantidad
             const pedidoActualizado = pedido.map(productoState => productoState.id === producto.id ? producto : productoState)
             setPedido(pedidoActualizado)
-            toast.success('Guardado Correctamente')
+            toast.success('Guardado Correctamente', {
+                autoClose:1500,
+            })
         } else {
             setPedido([...pedido, producto])
-            toast.success('Agregado al Pedido')
+            toast.success('Agregado al Pedido', {
+                autoClose: 1500,
+            })
         }
         setModal(false)
     }
 
+    const handleEditarCantidades = id => {
+        const productoActualizar = pedido.filter(producto => producto.id === id)
+        setProducto(productoActualizar[0])
+        setModal(!modal)
+    }
+    const handleEliminarProducto = id => {
+        const pedidoActualizado = pedido.filter(producto => producto.id !== id)
+        setPedido(pedidoActualizado)
+    }
 
     return(
         <QuioscoContext.Provider
@@ -66,6 +79,8 @@ const QuioscoProvider = ({children}) => {
                 handleChangeModal,
                 handleAgregarPedido,
                 pedido,
+                handleEditarCantidades,
+                handleEliminarProducto
             }}
         >
             {children}
