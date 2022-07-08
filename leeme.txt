@@ -45,3 +45,10 @@ npx create-next-app@latest
         10.2.1 import {ToastContainer} from 'react-toastify'
         10.2.2 import 'react-toastify/dist/ReactToastify.css'
     10.3 (QuioscoProvider.jsx) import { toast} from 'react-toastify'
+
+
+
+
+
+
+    -webkit-line-clamp: 4;
