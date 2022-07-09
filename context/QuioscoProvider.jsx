@@ -81,8 +81,22 @@ const QuioscoProvider = ({children}) => {
     const colocarOrden = async (e) => {
         e.preventDefault();
         try {
-            const {data} = await axios.post('api/ordenes', {pedido, nombre, total, fecha: Date.now().toString()})
-            console.log(data)
+            await axios.post('api/ordenes', {pedido, nombre, total, fecha: Date.now().toString()})
+            
+            //resetear la App par aque no haya pedidos duplicados
+            setCategoriaActual(categorias[0])
+            setPedido([])
+            setNombre('')
+            setTotal(0)
+
+            toast.info('pedido realizado correctamente', {
+                autoClose: 1500,
+            })
+
+            setTimeout(() => {
+                    router.push('/')
+            },3000)
+
         } catch (error) {
             console.log(error)
         }
