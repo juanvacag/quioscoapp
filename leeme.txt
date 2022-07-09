@@ -46,9 +46,33 @@ npx create-next-app@latest
         10.2.2 import 'react-toastify/dist/ReactToastify.css'
     10.3 (QuioscoProvider.jsx) import { toast} from 'react-toastify'
 
+11- desde una terminal de powershell como administrador, teclear
+    11.1 npm i react-modal
+    
+---------- DEPLOYMENT ----------
+
+12- desde una terminal teclear
+    12.1 npm run build
+
+13- desde una terminal de powershell como administrador, teclear
+    13.1 npm i -g vercel
+    13.2 registrarse
+    
+14- registrarse en railway.app
+    14.1 new proyect
+    14.2 provision MySQL
+    14.3 esperar a que este creada la bd, pinchar en MySQL
+
+15- desde una terminal teclear
+    15.1 vercel
+    15.2 en Set up and deploy [y/n] responder y
 
 
 
 
 
-    -webkit-line-clamp: 4;
+___________________________________________
+
+no tocar
+
+-webkit-line-clamp: 4;
